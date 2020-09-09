@@ -118,6 +118,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "ConsoleOpener",
+                    "type": "Button",
+                    "id": "063713e5-452c-4f26-98b0-08808ff3876a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "ScrollWheel",
                     "type": "PassThrough",
                     "id": "311aacbe-e44e-4beb-bdab-d43e4a362d30",
@@ -227,6 +235,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3bdbebeb-b9e9-4750-8be6-963695ded2b1",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "A",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "90a3e6e2-372b-4ff1-8bba-22d306934672",
                     "path": "<GameController>/B",
                     "interactions": "",
@@ -273,6 +292,17 @@
                     "name": "",
                     "id": "e0c1bce9-29fe-4900-b0ed-cf572b092704",
                     "path": "<GameControllerBluetooth>/B",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "B",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb97ec15-0e1c-44a3-ade7-ce2e64fdacf9",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -414,17 +444,6 @@
                 },
                 {
                     "name": "",
-                    "id": "06b70297-65a7-4e73-a09a-2af9a9b45451",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Atari",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "861c04ef-52bf-417b-bdc2-5241c5e28226",
                     "path": "<ClassicJoystick>/Atari",
                     "interactions": "",
@@ -449,6 +468,17 @@
                     "name": "",
                     "id": "7dc56038-19c9-44f8-9994-7f0e5c6dc501",
                     "path": "<GameControllerBluetooth>/Atari",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Atari",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8795631-5708-4be4-bb08-a3475facd739",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1014,6 +1044,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41f87d86-86d7-4684-b668-e51a10b4b1a1",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ConsoleOpener",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

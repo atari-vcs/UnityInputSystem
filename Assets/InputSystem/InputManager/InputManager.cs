@@ -261,6 +261,8 @@ namespace Atari.VCS.Dashboard
             else if (context.phase == InputActionPhase.Canceled)
             {
                 myMovement = Vector2.zero;
+
+                shouldMoveAxis = false;
             }
         }
 
