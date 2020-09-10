@@ -12,7 +12,7 @@ namespace Atari.VCS.Dashboard
 
         private static InputManager instance = null;
 
-        private InputManager ()
+        private InputManager()
         {
 
         }
@@ -23,7 +23,7 @@ namespace Atari.VCS.Dashboard
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<InputManager> ();
+                    instance = FindObjectOfType<InputManager>();
                 }
 
                 return instance;
@@ -34,13 +34,19 @@ namespace Atari.VCS.Dashboard
 
         #region Object References
 
-        [Space (10)]
+        [Space(10)]
+
+        public EventSystem eventSystem;
+
+        public EventSystem InputSystemEventSystem;
 
         #endregion
 
         #region Actions
 
-        public static Action<ButtonType> OnButtonPressed;
+        public static Action<ButtonType, InputSource> OnButtonPressed;
+
+        public static event Action ControllerChange;
 
         #endregion
 
@@ -67,248 +73,377 @@ namespace Atari.VCS.Dashboard
             "DCP-J152N"
         };
 
-        private Vector2 myMovement = Vector2.zero;
+        public InputSource CurrentInputSource { get; private set; } = InputSource.NONE;
 
         private bool shouldMoveAxis = false;
 
+        private bool isInputEnabled = false;
+
+        public bool IsInputEnabled
+        {
+            get
+            {
+                return isInputEnabled;
+            }
+
+            set
+            {
+                isInputEnabled = value;
+
+                InputSystemEventSystem.sendNavigationEvents = value;
+            }
+        }
+
+        public bool IsBumperEnabled { get; set; } = false;
+
+        private int moveCount = 0;
+
+        private float DEFAULT_WAIT_TIME = 0.3f;
+
+        private float lastMoveTime = 0;
+
+        private float lastButtonMove = 0;
+
+        private int controllerId = -1;
+
+        private Vector2 myMovement = Vector2.zero;
+
+        //private HashSet<IInputListener> listeners = new HashSet<IInputListener> ();
+
         #endregion
 
-        private void OnDisable ()
+        private void OnDisable()
         {
             OnButtonPressed = null;
         }
 
+        private void OnEnable()
+        {
+            isInputEnabled = true;
+        }
+
         #region ControllerMappedLayout
 
-        public void A (InputAction.CallbackContext context)
+        public void A(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
-                 {
-                     OnButtonPressed?.Invoke (ButtonType.A);
-
-                 }, context);
+                if (isInputEnabled)
+                {
+                    ButtonPressed(ButtonType.A, context);
+                }
             }
         }
 
-        public void B (InputAction.CallbackContext context)
+        public void B(InputAction.CallbackContext context)
         {
-            // The Variation here in comparison to other button methods is for B Buttons' Backspace repeatability in Keyboard
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.B);
+                    ButtonPressed(ButtonType.B, context);
+                }
+            }
+        }
+    
 
-                }, context);
+        public void X(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (isInputEnabled)
+                {
+                    ButtonPressed(ButtonType.X, context);
+                }
             }
         }
 
-        public void X (InputAction.CallbackContext context)
+        public void Y(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.X);
-                }, context);
+                    ButtonPressed(ButtonType.Y, context);
+                }
             }
         }
 
-        public void Y (InputAction.CallbackContext context)
+        public void LeftBumper(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled || IsBumperEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.Y);
-                }, context);
+                    ButtonPressed(ButtonType.LeftBumper, context);
+                }
             }
         }
 
-        public void LeftBumper (InputAction.CallbackContext context)
+        public void RightBumper(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled || IsBumperEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.LeftBumper);
-                }, context);
+                    ButtonPressed(ButtonType.RightBumper, context);
+                }
             }
         }
 
-        public void RightBumper (InputAction.CallbackContext context)
+        public void LeftTrigger(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (context.ReadValue<float>() >= 0.99f)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.RightBumper);
-                }, context);
-            }
-        }
-
-        public void LeftTrigger (InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-            {
-                PerformInputAction (() =>
-                {
-                    if ((context.ReadValue<float> ()) >= 0.99f)
+                    if (isInputEnabled)
                     {
-                        OnButtonPressed?.Invoke (ButtonType.LeftTrigger);
+                        ButtonPressed(ButtonType.LeftTrigger, context);
                     }
-
-                }, context);
+                }
             }
         }
 
-        public void RightTrigger (InputAction.CallbackContext context)
+        public void RightTrigger(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (context.ReadValue<float>() >= 0.99f)
                 {
-                    if ((context.ReadValue<float> ()) >= 0.99f)
+                    if (isInputEnabled)
                     {
-                        OnButtonPressed?.Invoke (ButtonType.RightTrigger);
+                        ButtonPressed(ButtonType.RightTrigger, context);
                     }
-                }, context);
+                }
             }
         }
 
-        public void LeftStick (InputAction.CallbackContext context)
+        public void LeftStick(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.LeftStick);
-
-                }, context);
+                    ButtonPressed(ButtonType.LeftStick, context);
+                }
             }
         }
 
-        public void RightStick (InputAction.CallbackContext context)
+        public void RightStick(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.RightStick);
-
-                }, context);
+                    ButtonPressed(ButtonType.RightStick, context);
+                }
             }
         }
 
-        public void Back (InputAction.CallbackContext context)
+        public void Back(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-                    OnButtonPressed?.Invoke (ButtonType.Back);
-
-                }, context);
+                    ButtonPressed(ButtonType.Back, context);
+                }
             }
         }
 
-        public void Menu (InputAction.CallbackContext context)
+        public void Atari(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-
-                    OnButtonPressed?.Invoke (ButtonType.Menu);
-
-
-                }, context);
+                    ButtonPressed(ButtonType.Atari, context);
+                }
             }
         }
-        public void Atari (InputAction.CallbackContext context)
-        {
 
-            if (context.phase == InputActionPhase.Performed)
-            {
-                AtariButtonControl (context);
-            }
-
-        }
-
-        public void Movement (InputAction.CallbackContext context)
+        public void Menu(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                PerformInputAction (() =>
+                if (isInputEnabled)
                 {
-                    myMovement = context.ReadValue<Vector2> ();
+                    ButtonPressed(ButtonType.Menu, context);
+                }
+            }
+        }
 
-                    myMovement = new Vector2 (Mathf.RoundToInt (myMovement.x), Mathf.RoundToInt (myMovement.y));
+        public void Movement(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                myMovement = context.ReadValue<Vector2>();
 
-                    if (myMovement.sqrMagnitude > 0)
-                    {
-                        shouldMoveAxis = true;
-                    }
-                    else
-                    {
-                        shouldMoveAxis = false;
-                    }
+                myMovement = new Vector2(Mathf.RoundToInt(myMovement.x), Mathf.RoundToInt(myMovement.y));
 
-                }, context);
+                if (myMovement.sqrMagnitude > 0)
+                {
+                    shouldMoveAxis = true;
+
+                    CurrentInputSource = GetInputSource(context);
+
+                    Update();
+
+                    CheckControllerSwitch(context);
+                }
+                else
+                {
+                    shouldMoveAxis = false;
+                }
             }
             else if (context.phase == InputActionPhase.Canceled)
             {
-                myMovement = Vector2.zero;
-
                 shouldMoveAxis = false;
+
+                moveCount = 0;
+
+                DEFAULT_WAIT_TIME = 0.3f;
+
+                myMovement = Vector2.zero;
             }
         }
 
         #endregion
 
-        private void Update ()
+        private void Update()
         {
-            if (shouldMoveAxis)
+            if (isInputEnabled)
             {
-                if (Mathf.Abs (myMovement.x) > Mathf.Abs (myMovement.y))
+                if (shouldMoveAxis && Time.time > (lastMoveTime + DEFAULT_WAIT_TIME))
                 {
-                    if (Mathf.RoundToInt (myMovement.x) > 0)
+                    if (Mathf.Abs(myMovement.x) > Mathf.Abs(myMovement.y))
                     {
-                        OnButtonPressed?.Invoke (ButtonType.Right);
+                        if ((myMovement.x) > 0)
+                        {
+                            OnButtonPressed?.Invoke(ButtonType.Right, CurrentInputSource);
+                        }
+                        else
+                        {
+                            OnButtonPressed?.Invoke(ButtonType.Left, CurrentInputSource);
+                        }
                     }
                     else
                     {
-                        OnButtonPressed?.Invoke (ButtonType.Left);
+                        if ((myMovement.y) > 0)
+                        {
+                            OnButtonPressed?.Invoke(ButtonType.Up, CurrentInputSource);
+                        }
+                        else
+                        {
+                            OnButtonPressed?.Invoke(ButtonType.Down, CurrentInputSource);
+                        }
                     }
-                }
-                else
-                {
-                    if (Mathf.RoundToInt (myMovement.y) > 0)
+
+                    moveCount++;
+
+                    if (moveCount > 1)
                     {
-                        OnButtonPressed?.Invoke (ButtonType.Up);
+                        DEFAULT_WAIT_TIME = 0.15f;
                     }
-                    else
-                    {
-                        OnButtonPressed?.Invoke (ButtonType.Down);
-                    }
+
+                    lastMoveTime = Time.time;
                 }
             }
         }
 
-        private void AtariButtonControl (InputAction.CallbackContext context, bool toSwitch = true)
+        private void ButtonPressed(ButtonType buttonType, InputAction.CallbackContext context)
         {
-            PerformInputAction (() =>
-            {
-                OnButtonPressed?.Invoke (ButtonType.Atari);
+            CurrentInputSource = GetInputSource(context);
 
-            }, context);
+            OnButtonPressed?.Invoke(buttonType, CurrentInputSource);
+
+            CheckControllerSwitch(context);
         }
 
-        private void PerformInputAction (Action callback, InputAction.CallbackContext context)
+        private InputSource GetInputSource(InputAction.CallbackContext context)
         {
-            callback?.Invoke ();
+            if (context.control == null)
+            {
+                Debug.LogErrorFormat("<InputManager/GetInputSource> Context.Control ({0})", "Null");
+
+                return InputSource.NONE;
+            }
+            else if (context.control.device == null)
+            {
+                Debug.LogErrorFormat("<InputManager/GetInputSource> Context.Control.Device ({0})", "Null");
+
+                return InputSource.NONE;
+            }
+
+            string current = context.control.device.description.product;
+
+            if (context.control.device.deviceId > 2)
+            {
+                if (string.IsNullOrEmpty(current))
+                {
+                    Debug.LogErrorFormat("<InputManager/GetInputSource> Context.Control.Device.Description.Product ({0})", "Null");
+
+                    return InputSource.NONE;
+                }
+
+                for (int i = 0; i < modernControllerNames.Count; i++)
+                {
+                    if (current.Equals(modernControllerNames[i]))
+                    {
+                        return InputSource.MODERN_CONTROLLER;
+                    }
+                }
+
+                for (int i = 0; i < classicJoystickNames.Count; i++)
+                {
+                    if (current.Equals(classicJoystickNames[i]))
+                    {
+                        return InputSource.CLASSIC_JOYSTICK;
+                    }
+                }
+
+                for (int i = 0; i < XInputController.Count; i++)
+                {
+                    if (current.Equals(XInputController[i]))
+                    {
+                        return InputSource.XBOX_CONTROLLER;
+                    }
+                }
+
+                for (int i = 0; i < XInputBluetoothController.Count; i++)
+                {
+                    if (current.Equals(XInputBluetoothController[i]))
+                    {
+                        return InputSource.XBOX_CONTROLLER;
+                    }
+                }
+
+                return InputSource.GENERIC;
+            }
+            else
+            {
+                return InputSource.KEYBOARD_AND_MOUSE;
+            }
+        }
+
+        private void CheckControllerSwitch(InputAction.CallbackContext context)
+        {
+            if (context.control == null)
+            {
+                return;
+            }
+            else if (context.control.device == null)
+            {
+                return;
+            }
+
+            if (!controllerId.Equals(context.control.device.deviceId))
+            {
+                controllerId = context.control.device.deviceId;
+
+                ControllerChange?.Invoke();
+            }
         }
     }
 }

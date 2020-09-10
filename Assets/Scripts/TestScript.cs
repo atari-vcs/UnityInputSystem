@@ -20,9 +20,9 @@ namespace Atari.VCS.Dashboard
             InputManager.OnButtonPressed -= ButtonPressed;
         }
 
-        private void ButtonPressed (ButtonType button)
+        private void ButtonPressed (ButtonType button,InputSource source)
         {
-            m_ButtonText.text = string.Format ("{0} was pressed", button.ToString ());
+            m_ButtonText.text = string.Format("{0} was pressed \n <size=32>({1})</size>", button.ToString(), source.ToString());
         }
     }
 }

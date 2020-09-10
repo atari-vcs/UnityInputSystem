@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8107556799865109489}
-  - component: {fileID: 8107556799865109490}
   - component: {fileID: 8107556799865109491}
+  - component: {fileID: 786893654605504927}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8107556799865109490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8107556799865109500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d2269639db2468a92d6276f8d64649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8107556799865109491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +61,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: A
         m_Mode: 0
         m_Arguments:
@@ -88,7 +76,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/A[/Keyboard/enter,/Keyboard/numpadEnter]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: B
         m_Mode: 0
         m_Arguments:
@@ -103,7 +91,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/B[/Keyboard/backspace]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: Back
         m_Mode: 0
         m_Arguments:
@@ -118,7 +106,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/Back
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: Menu
         m_Mode: 0
         m_Arguments:
@@ -133,7 +121,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/Menu[/Keyboard/leftMeta,/Keyboard/contextMenu]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: Atari
         m_Mode: 0
         m_Arguments:
@@ -148,7 +136,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/Atari[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: Y
         m_Mode: 0
         m_Arguments:
@@ -163,7 +151,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/Y[/Keyboard/f2,/Keyboard/rightAlt]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: X
         m_Mode: 0
         m_Arguments:
@@ -178,7 +166,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/X[/Keyboard/f1,/Keyboard/leftAlt]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: LeftBumper
         m_Mode: 0
         m_Arguments:
@@ -193,7 +181,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/LeftBumper[/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: RightBumper
         m_Mode: 0
         m_Arguments:
@@ -208,7 +196,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/RightBumper[/Keyboard/rightShift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: LeftTrigger
         m_Mode: 0
         m_Arguments:
@@ -223,7 +211,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/LeftTrigger[/Keyboard/leftCtrl]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: RightTrigger
         m_Mode: 0
         m_Arguments:
@@ -238,7 +226,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/RightTrigger[/Keyboard/rightCtrl]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: RightStick
         m_Mode: 0
         m_Arguments:
@@ -253,7 +241,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/RightStick[/Keyboard/f4]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: LeftStick
         m_Mode: 0
         m_Arguments:
@@ -268,7 +256,7 @@ MonoBehaviour:
     m_ActionName: Dashboard/LeftStick[/Keyboard/f3]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8107556799865109490}
+      - m_Target: {fileID: 786893654605504927}
         m_MethodName: Movement
         m_Mode: 0
         m_Arguments:
@@ -306,6 +294,20 @@ MonoBehaviour:
   m_DefaultActionMap: Dashboard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &786893654605504927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107556799865109500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b19815c749041ddbc4618a85e07f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 8107556800939047970}
+  InputSystemEventSystem: {fileID: 8107556800939047970}
 --- !u!1 &8107556800939047980
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,9 +376,12 @@ MonoBehaviour:
   m_MoveAction: {fileID: 0}
   m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
-  m_MiddleClickAction: {fileID: 0}
-  m_RightClickAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 6274444149361379271, guid: 4ba08553975d499bbbf89f2877b2f6bd,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2303612108531400680, guid: 4ba08553975d499bbbf89f2877b2f6bd,
+    type: 3}
+  m_RightClickAction: {fileID: 6587185213236736755, guid: 4ba08553975d499bbbf89f2877b2f6bd,
+    type: 3}
   m_ScrollWheelAction: {fileID: -2913017136527411644, guid: 4ba08553975d499bbbf89f2877b2f6bd,
     type: 3}
   m_TrackedDevicePositionAction: {fileID: 0}

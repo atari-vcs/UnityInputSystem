@@ -118,14 +118,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ConsoleOpener",
-                    "type": "Button",
-                    "id": "063713e5-452c-4f26-98b0-08808ff3876a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "ScrollWheel",
                     "type": "PassThrough",
                     "id": "311aacbe-e44e-4beb-bdab-d43e4a362d30",
@@ -1044,17 +1036,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightTrigger",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "41f87d86-86d7-4684-b668-e51a10b4b1a1",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ConsoleOpener",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
