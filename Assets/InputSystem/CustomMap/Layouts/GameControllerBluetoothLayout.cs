@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Utilities;
 
 namespace Atari.VCS.Dashboard
 {
-    public struct ModernControllerLayout : IInputStateTypeInfo
+    public struct GameControllerBluetoothLayout : IInputStateTypeInfo
     {
         public FourCC format => new FourCC ('L', 'J', 'O', 'Y');
 
@@ -65,18 +65,19 @@ namespace Atari.VCS.Dashboard
 
         //Joystick  - Right //Modern
         [InputControl (name = "RightJoystick", layout = "Stick", format = "VEC2", offset = 16, bit = 0)]//(12 and 16)
-        [InputControl (name = "RightJoystick/x", offset = 0, format = "INT",
+        [InputControl (name = "RightJoystick/x", offset = 4, format = "INT",
             parameters = "clamp =1,clampMin=-1,clampMax=1,scale,scaleFactor=65538")]
-        [InputControl (name = "RightJoystick/left", offset = 0, format = "INT",
+        [InputControl (name = "RightJoystick/left", offset = 4, format = "INT",
             parameters = "clamp=1,clampMin=-1,clampMax=0,scale,scaleFactor=65538,invert")]
-        [InputControl (name = "RightJoystick/right", offset = 0, format = "INT",
+        [InputControl (name = "RightJoystick/right", offset = 4, format = "INT",
             parameters = "clamp=1,clampMin=0,clampMax=1,scale,scaleFactor=65538")]
-        [InputControl (name = "RightJoystick/y", offset = 4, format = "INT",
+        [InputControl (name = "RightJoystick/y", offset = 0, format = "INT",
             parameters = "clamp=1,clampMin=-1,clampMax=1,scale,scaleFactor=65538,invert")]
-        [InputControl (name = "RightJoystick/up", offset = 4, format = "INT",
+        [InputControl (name = "RightJoystick/up", offset = 0, format = "INT",
             parameters = "clamp=1,clampMin=-1,clampMax=0,scale,scaleFactor=65538,invert")]
-        [InputControl (name = "RightJoystick/down", offset = 4, format = "INT",
+        [InputControl (name = "RightJoystick/down", offset = 0, format = "INT",
             parameters = "clamp=1,clampMin=0,clampMax=1,scale,scaleFactor=65538")]
+
         public byte stick2x;
         public byte stick2y;
     }

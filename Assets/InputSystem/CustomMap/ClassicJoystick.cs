@@ -21,7 +21,9 @@ namespace Atari.VCS.Dashboard
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {
-                InputSystem.RegisterLayout<ClassicJoystick> (matches: new InputDeviceMatcher ().WithProduct (namesToRegister [i]));
+                InputSystem.RegisterLayout<ClassicJoystick> (
+                matches: new InputDeviceMatcher ()
+                    .WithProduct (namesToRegister [i]));
             }
         }
 

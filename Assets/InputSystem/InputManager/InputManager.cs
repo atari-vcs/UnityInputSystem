@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Layouts;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Atari.VCS.Dashboard
 {
@@ -94,44 +96,18 @@ namespace Atari.VCS.Dashboard
             }
         }
 
-        public bool IsBumperEnabled { get; set; } = false;
-
-        private int moveCount = 0;
-
-        private float DEFAULT_WAIT_TIME = 0.3f;
-
-        private float lastMoveTime = 0;
-
-        private float lastButtonMove = 0;
-
-        private int controllerId = -1;
-
         private Vector2 myMovement = Vector2.zero;
 
         //private HashSet<IInputListener> listeners = new HashSet<IInputListener> ();
 
         #endregion
-
-        private void OnDisable()
-        {
-            OnButtonPressed = null;
-        }
-
-        private void OnEnable()
-        {
-            isInputEnabled = true;
-        }
-
         #region ControllerMappedLayout
 
         public void A(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.A, context);
-                }
+                ButtonPressed(ButtonType.A, context);
             }
         }
 
@@ -139,22 +115,16 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.B, context);
-                }
+                ButtonPressed(ButtonType.B, context);
             }
         }
-    
+
 
         public void X(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.X, context);
-                }
+                ButtonPressed(ButtonType.X, context);
             }
         }
 
@@ -162,10 +132,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.Y, context);
-                }
+                ButtonPressed(ButtonType.Y, context);
             }
         }
 
@@ -173,10 +140,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled || IsBumperEnabled)
-                {
-                    ButtonPressed(ButtonType.LeftBumper, context);
-                }
+                ButtonPressed(ButtonType.LeftBumper, context);
             }
         }
 
@@ -184,10 +148,8 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled || IsBumperEnabled)
-                {
-                    ButtonPressed(ButtonType.RightBumper, context);
-                }
+
+                ButtonPressed(ButtonType.RightBumper, context);
             }
         }
 
@@ -197,10 +159,7 @@ namespace Atari.VCS.Dashboard
             {
                 if (context.ReadValue<float>() >= 0.99f)
                 {
-                    if (isInputEnabled)
-                    {
-                        ButtonPressed(ButtonType.LeftTrigger, context);
-                    }
+                    ButtonPressed(ButtonType.LeftTrigger, context);
                 }
             }
         }
@@ -211,10 +170,7 @@ namespace Atari.VCS.Dashboard
             {
                 if (context.ReadValue<float>() >= 0.99f)
                 {
-                    if (isInputEnabled)
-                    {
-                        ButtonPressed(ButtonType.RightTrigger, context);
-                    }
+                    ButtonPressed(ButtonType.RightTrigger, context);
                 }
             }
         }
@@ -223,10 +179,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.LeftStick, context);
-                }
+                ButtonPressed(ButtonType.LeftStick, context);
             }
         }
 
@@ -234,10 +187,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.RightStick, context);
-                }
+                ButtonPressed(ButtonType.RightStick, context);
             }
         }
 
@@ -245,10 +195,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.Back, context);
-                }
+                ButtonPressed(ButtonType.Back, context);
             }
         }
 
@@ -256,10 +203,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.Atari, context);
-                }
+                ButtonPressed(ButtonType.Atari, context);
             }
         }
 
@@ -267,10 +211,7 @@ namespace Atari.VCS.Dashboard
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (isInputEnabled)
-                {
-                    ButtonPressed(ButtonType.Menu, context);
-                }
+                ButtonPressed(ButtonType.Menu, context);
             }
         }
 
@@ -301,10 +242,6 @@ namespace Atari.VCS.Dashboard
             {
                 shouldMoveAxis = false;
 
-                moveCount = 0;
-
-                DEFAULT_WAIT_TIME = 0.3f;
-
                 myMovement = Vector2.zero;
             }
         }
@@ -313,41 +250,29 @@ namespace Atari.VCS.Dashboard
 
         private void Update()
         {
-            if (isInputEnabled)
+            if (shouldMoveAxis)
             {
-                if (shouldMoveAxis && Time.time > (lastMoveTime + DEFAULT_WAIT_TIME))
+                if (Mathf.Abs(myMovement.x) > Mathf.Abs(myMovement.y))
                 {
-                    if (Mathf.Abs(myMovement.x) > Mathf.Abs(myMovement.y))
+                    if ((myMovement.x) > 0)
                     {
-                        if ((myMovement.x) > 0)
-                        {
-                            OnButtonPressed?.Invoke(ButtonType.Right, CurrentInputSource);
-                        }
-                        else
-                        {
-                            OnButtonPressed?.Invoke(ButtonType.Left, CurrentInputSource);
-                        }
+                        OnButtonPressed?.Invoke(ButtonType.Right, CurrentInputSource);
                     }
                     else
                     {
-                        if ((myMovement.y) > 0)
-                        {
-                            OnButtonPressed?.Invoke(ButtonType.Up, CurrentInputSource);
-                        }
-                        else
-                        {
-                            OnButtonPressed?.Invoke(ButtonType.Down, CurrentInputSource);
-                        }
+                        OnButtonPressed?.Invoke(ButtonType.Left, CurrentInputSource);
                     }
-
-                    moveCount++;
-
-                    if (moveCount > 1)
+                }
+                else
+                {
+                    if ((myMovement.y) > 0)
                     {
-                        DEFAULT_WAIT_TIME = 0.15f;
+                        OnButtonPressed?.Invoke(ButtonType.Up, CurrentInputSource);
                     }
-
-                    lastMoveTime = Time.time;
+                    else
+                    {
+                        OnButtonPressed?.Invoke(ButtonType.Down, CurrentInputSource);
+                    }
                 }
             }
         }
@@ -436,13 +361,6 @@ namespace Atari.VCS.Dashboard
             else if (context.control.device == null)
             {
                 return;
-            }
-
-            if (!controllerId.Equals(context.control.device.deviceId))
-            {
-                controllerId = context.control.device.deviceId;
-
-                ControllerChange?.Invoke();
             }
         }
     }
