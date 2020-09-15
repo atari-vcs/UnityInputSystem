@@ -14,7 +14,7 @@ namespace Atari.VCS.Dashboard
 
         private static InputManager instance = null;
 
-        private InputManager()
+        private InputManager ()
         {
 
         }
@@ -25,7 +25,7 @@ namespace Atari.VCS.Dashboard
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<InputManager>();
+                    instance = FindObjectOfType<InputManager> ();
                 }
 
                 return instance;
@@ -36,7 +36,7 @@ namespace Atari.VCS.Dashboard
 
         #region Object References
 
-        [Space(10)]
+        [Space (10)]
 
         public EventSystem eventSystem;
 
@@ -47,8 +47,6 @@ namespace Atari.VCS.Dashboard
         #region Actions
 
         public static Action<ButtonType, InputSource> OnButtonPressed;
-
-        public static event Action ControllerChange;
 
         #endregion
 
@@ -103,135 +101,135 @@ namespace Atari.VCS.Dashboard
         #endregion
         #region ControllerMappedLayout
 
-        public void A(InputAction.CallbackContext context)
+        public void A (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.A, context);
+                ButtonPressed (ButtonType.A, context);
             }
         }
 
-        public void B(InputAction.CallbackContext context)
+        public void B (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.B, context);
+                ButtonPressed (ButtonType.B, context);
             }
         }
 
 
-        public void X(InputAction.CallbackContext context)
+        public void X (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.X, context);
+                ButtonPressed (ButtonType.X, context);
             }
         }
 
-        public void Y(InputAction.CallbackContext context)
+        public void Y (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.Y, context);
+                ButtonPressed (ButtonType.Y, context);
             }
         }
 
-        public void LeftBumper(InputAction.CallbackContext context)
+        public void LeftBumper (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.LeftBumper, context);
+                ButtonPressed (ButtonType.LeftBumper, context);
             }
         }
 
-        public void RightBumper(InputAction.CallbackContext context)
+        public void RightBumper (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
 
-                ButtonPressed(ButtonType.RightBumper, context);
+                ButtonPressed (ButtonType.RightBumper, context);
             }
         }
 
-        public void LeftTrigger(InputAction.CallbackContext context)
+        public void LeftTrigger (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (context.ReadValue<float>() >= 0.99f)
+                if (context.ReadValue<float> () >= 0.99f)
                 {
-                    ButtonPressed(ButtonType.LeftTrigger, context);
+                    ButtonPressed (ButtonType.LeftTrigger, context);
                 }
             }
         }
 
-        public void RightTrigger(InputAction.CallbackContext context)
+        public void RightTrigger (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                if (context.ReadValue<float>() >= 0.99f)
+                if (context.ReadValue<float> () >= 0.99f)
                 {
-                    ButtonPressed(ButtonType.RightTrigger, context);
+                    ButtonPressed (ButtonType.RightTrigger, context);
                 }
             }
         }
 
-        public void LeftStick(InputAction.CallbackContext context)
+        public void LeftStick (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.LeftStick, context);
+                ButtonPressed (ButtonType.LeftStick, context);
             }
         }
 
-        public void RightStick(InputAction.CallbackContext context)
+        public void RightStick (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.RightStick, context);
+                ButtonPressed (ButtonType.RightStick, context);
             }
         }
 
-        public void Back(InputAction.CallbackContext context)
+        public void Back (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.Back, context);
+                ButtonPressed (ButtonType.Back, context);
             }
         }
 
-        public void Atari(InputAction.CallbackContext context)
+        public void Atari (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.Atari, context);
+                ButtonPressed (ButtonType.Atari, context);
             }
         }
 
-        public void Menu(InputAction.CallbackContext context)
+        public void Menu (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ButtonPressed(ButtonType.Menu, context);
+                ButtonPressed (ButtonType.Menu, context);
             }
         }
 
-        public void Movement(InputAction.CallbackContext context)
+        public void Movement (InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                myMovement = context.ReadValue<Vector2>();
+                myMovement = context.ReadValue<Vector2> ();
 
-                myMovement = new Vector2(Mathf.RoundToInt(myMovement.x), Mathf.RoundToInt(myMovement.y));
+                myMovement = new Vector2 (Mathf.RoundToInt (myMovement.x), Mathf.RoundToInt (myMovement.y));
 
                 if (myMovement.sqrMagnitude > 0)
                 {
                     shouldMoveAxis = true;
 
-                    CurrentInputSource = GetInputSource(context);
+                    CurrentInputSource = GetInputSource (context);
 
-                    Update();
+                    Update ();
 
-                    CheckControllerSwitch(context);
+                    CheckControllerSwitch (context);
                 }
                 else
                 {
@@ -248,55 +246,55 @@ namespace Atari.VCS.Dashboard
 
         #endregion
 
-        private void Update()
+        private void Update ()
         {
             if (shouldMoveAxis)
             {
-                if (Mathf.Abs(myMovement.x) > Mathf.Abs(myMovement.y))
+                if (Mathf.Abs (myMovement.x) > Mathf.Abs (myMovement.y))
                 {
                     if ((myMovement.x) > 0)
                     {
-                        OnButtonPressed?.Invoke(ButtonType.Right, CurrentInputSource);
+                        OnButtonPressed?.Invoke (ButtonType.Right, CurrentInputSource);
                     }
                     else
                     {
-                        OnButtonPressed?.Invoke(ButtonType.Left, CurrentInputSource);
+                        OnButtonPressed?.Invoke (ButtonType.Left, CurrentInputSource);
                     }
                 }
                 else
                 {
                     if ((myMovement.y) > 0)
                     {
-                        OnButtonPressed?.Invoke(ButtonType.Up, CurrentInputSource);
+                        OnButtonPressed?.Invoke (ButtonType.Up, CurrentInputSource);
                     }
                     else
                     {
-                        OnButtonPressed?.Invoke(ButtonType.Down, CurrentInputSource);
+                        OnButtonPressed?.Invoke (ButtonType.Down, CurrentInputSource);
                     }
                 }
             }
         }
 
-        private void ButtonPressed(ButtonType buttonType, InputAction.CallbackContext context)
+        private void ButtonPressed (ButtonType buttonType, InputAction.CallbackContext context)
         {
-            CurrentInputSource = GetInputSource(context);
+            CurrentInputSource = GetInputSource (context);
 
-            OnButtonPressed?.Invoke(buttonType, CurrentInputSource);
+            OnButtonPressed?.Invoke (buttonType, CurrentInputSource);
 
-            CheckControllerSwitch(context);
+            CheckControllerSwitch (context);
         }
 
-        private InputSource GetInputSource(InputAction.CallbackContext context)
+        private InputSource GetInputSource (InputAction.CallbackContext context)
         {
             if (context.control == null)
             {
-                Debug.LogErrorFormat("<InputManager/GetInputSource> Context.Control ({0})", "Null");
+                Debug.LogErrorFormat ("<InputManager/GetInputSource> Context.Control ({0})", "Null");
 
                 return InputSource.NONE;
             }
             else if (context.control.device == null)
             {
-                Debug.LogErrorFormat("<InputManager/GetInputSource> Context.Control.Device ({0})", "Null");
+                Debug.LogErrorFormat ("<InputManager/GetInputSource> Context.Control.Device ({0})", "Null");
 
                 return InputSource.NONE;
             }
@@ -305,16 +303,16 @@ namespace Atari.VCS.Dashboard
 
             if (context.control.device.deviceId > 2)
             {
-                if (string.IsNullOrEmpty(current))
+                if (string.IsNullOrEmpty (current))
                 {
-                    Debug.LogErrorFormat("<InputManager/GetInputSource> Context.Control.Device.Description.Product ({0})", "Null");
+                    Debug.LogErrorFormat ("<InputManager/GetInputSource> Context.Control.Device.Description.Product ({0})", "Null");
 
                     return InputSource.NONE;
                 }
 
                 for (int i = 0; i < modernControllerNames.Count; i++)
                 {
-                    if (current.Equals(modernControllerNames[i]))
+                    if (current.Equals (modernControllerNames [i]))
                     {
                         return InputSource.MODERN_CONTROLLER;
                     }
@@ -322,7 +320,7 @@ namespace Atari.VCS.Dashboard
 
                 for (int i = 0; i < classicJoystickNames.Count; i++)
                 {
-                    if (current.Equals(classicJoystickNames[i]))
+                    if (current.Equals (classicJoystickNames [i]))
                     {
                         return InputSource.CLASSIC_JOYSTICK;
                     }
@@ -330,7 +328,7 @@ namespace Atari.VCS.Dashboard
 
                 for (int i = 0; i < XInputController.Count; i++)
                 {
-                    if (current.Equals(XInputController[i]))
+                    if (current.Equals (XInputController [i]))
                     {
                         return InputSource.XBOX_CONTROLLER;
                     }
@@ -338,7 +336,7 @@ namespace Atari.VCS.Dashboard
 
                 for (int i = 0; i < XInputBluetoothController.Count; i++)
                 {
-                    if (current.Equals(XInputBluetoothController[i]))
+                    if (current.Equals (XInputBluetoothController [i]))
                     {
                         return InputSource.XBOX_CONTROLLER;
                     }
@@ -352,7 +350,7 @@ namespace Atari.VCS.Dashboard
             }
         }
 
-        private void CheckControllerSwitch(InputAction.CallbackContext context)
+        private void CheckControllerSwitch (InputAction.CallbackContext context)
         {
             if (context.control == null)
             {
