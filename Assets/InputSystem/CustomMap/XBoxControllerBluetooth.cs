@@ -9,19 +9,19 @@ using UnityEngine.InputSystem.Utilities;
 namespace Atari.VCS.Dashboard
 {
     // The device must be directed to the state struct we have created.
-    [InputControlLayout (stateType = typeof (XControllerBluetoothLayout))]
-    public class XControllerBluetooth : Gamepad
+    [InputControlLayout (stateType = typeof (XBoxControllerBluetoothLayout))]
+    public class XBoxControllerBluetooth : Gamepad
     {
         public DpadControl Dpad { get; private set; }
         public ButtonControl Button { get; private set; }
 
-        static XControllerBluetooth ()
+        static XBoxControllerBluetooth ()
         {
             List<string> namesToRegister = InputManager.XInputBluetoothController;
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {
-                InputSystem.RegisterLayout<XControllerBluetooth> (
+                InputSystem.RegisterLayout<XBoxControllerBluetooth> (
                 matches: new InputDeviceMatcher ()
                     .WithProduct (namesToRegister [i]));
             }

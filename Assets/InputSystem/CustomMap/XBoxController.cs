@@ -9,19 +9,19 @@ using UnityEngine.InputSystem.Utilities;
 namespace Atari.VCS.Dashboard
 {
     // The device must be directed to the state struct we have created.
-    [InputControlLayout (stateType = typeof (XControllerLayout))]
-    public class XController : Gamepad
+    [InputControlLayout (stateType = typeof (XBoxControllerLayout))]
+    public class XboxController : Gamepad
     {
         public DpadControl Dpad { get; private set; }
         public ButtonControl Button { get; private set; }
 
-        static XController ()
+        static XboxController ()
         {
             List<string> namesToRegister = InputManager.XInputController;
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {
-                InputSystem.RegisterLayout<XController> (
+                InputSystem.RegisterLayout<XboxController> (
                 matches: new InputDeviceMatcher ()
                     .WithProduct (namesToRegister [i]));
             }

@@ -8,8 +8,8 @@ using UnityEngine.InputSystem.Utilities;
 namespace Atari.VCS.Dashboard
 {
     // The device must be directed to the state struct we have created.
-    [InputControlLayout (stateType = typeof (GameControllerBluetoothLayout))]
-    public class GameControllerBluetooth : InputDevice
+    [InputControlLayout (stateType = typeof (ModernControllerBluetoothLayout))]
+    public class ModernControllerBluetooth : InputDevice
     {
         //public AxisControl axis { get; private set; }
         //public ButtonControl button { get; private set; }

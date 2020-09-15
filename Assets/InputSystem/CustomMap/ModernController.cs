@@ -10,7 +10,7 @@ namespace Atari.VCS.Dashboard
 {
     // The device must be directed to the state struct we have created.
     [InputControlLayout (stateType = typeof (GameControllerLayout))]
-    public class GameController : Joystick
+    public class ModernController : Joystick
     {
         public StickControl LeftAxis { get; private set; }
         public StickControl RightAxis { get; private set; }
@@ -26,13 +26,13 @@ namespace Atari.VCS.Dashboard
 
         }
 
-        static GameController ()
+        static ModernController ()
         {
             List<string> namesToRegister = InputManager.modernControllerNames;
 
             for(int i =0;i<namesToRegister.Count;i++)
             {
-                InputSystem.RegisterLayout<GameController> (
+                InputSystem.RegisterLayout<ModernController> (
                 matches: new InputDeviceMatcher ()
                     .WithProduct (namesToRegister [i]));
             }

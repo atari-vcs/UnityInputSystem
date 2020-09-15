@@ -162,7 +162,7 @@
                 {
                     "name": "",
                     "id": "fec836d5-6d30-4cbb-8b25-68f4ad013d4d",
-                    "path": "<GameController>/SelectButton",
+                    "path": "<ModernController>/SelectButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -239,7 +239,7 @@
                 {
                     "name": "",
                     "id": "90a3e6e2-372b-4ff1-8bba-22d306934672",
-                    "path": "<GameController>/B",
+                    "path": "<ModernController>/B",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -305,7 +305,7 @@
                 {
                     "name": "",
                     "id": "34e585a6-9a97-43f4-9f7a-9b65f5c5cd0d",
-                    "path": "<GameController>/Back",
+                    "path": "<ModernController>/Back",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -349,7 +349,7 @@
                 {
                     "name": "",
                     "id": "845d223d-9141-49d0-8491-e0623b9a28ad",
-                    "path": "<GameController>/Menu",
+                    "path": "<ModernController>/Menu",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -415,7 +415,7 @@
                 {
                     "name": "",
                     "id": "4cd90a32-50ad-43ca-a1be-c8ed408d9d3c",
-                    "path": "<XControllerBluetooth>/atari",
+                    "path": "<XBoxControllerBluetooth>/atari",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -426,7 +426,7 @@
                 {
                     "name": "",
                     "id": "2b47cfa8-79c2-438a-ad22-d01d6d415ef2",
-                    "path": "<GameController>/Atari",
+                    "path": "<ModernController>/Atari",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -448,7 +448,7 @@
                 {
                     "name": "",
                     "id": "bc8de43b-9875-4034-80cd-516e7aacd622",
-                    "path": "<XController>/atari",
+                    "path": "<XboxController>/atari",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -481,7 +481,7 @@
                 {
                     "name": "",
                     "id": "e7c5a26f-1400-4440-abe1-f9c3af7b1adf",
-                    "path": "<GameController>/YButton",
+                    "path": "<ModernController>/YButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -536,7 +536,7 @@
                 {
                     "name": "",
                     "id": "5d2a3184-1880-4df3-899b-ba83d03d5657",
-                    "path": "<GameController>/XButton",
+                    "path": "<ModernController>/XButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -591,7 +591,7 @@
                 {
                     "name": "",
                     "id": "23237714-cdad-4902-8289-419a862402fe",
-                    "path": "<GameController>/LeftBumper",
+                    "path": "<ModernController>/LeftBumper",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -635,7 +635,7 @@
                 {
                     "name": "",
                     "id": "eca3f149-d1e7-4b91-bb1d-990c5a521e75",
-                    "path": "<GameController>/RightBumper",
+                    "path": "<ModernController>/RightBumper",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -712,7 +712,7 @@
                 {
                     "name": "",
                     "id": "b5a7a91f-f8d8-4059-a6ab-d3a5e8863019",
-                    "path": "<GameController>/LeftTrigger",
+                    "path": "<ModernController>/LeftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -723,7 +723,7 @@
                 {
                     "name": "",
                     "id": "2b231b53-5a2f-4bd6-a6bf-11da3c02ea79",
-                    "path": "<GameController>/RightTrigger",
+                    "path": "<ModernController>/RightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -756,7 +756,7 @@
                 {
                     "name": "",
                     "id": "9da60e0f-a20e-45a8-ac27-63df18f74cb3",
-                    "path": "<XControllerBluetooth>/rightStickPress",
+                    "path": "<XBoxControllerBluetooth>/rightStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -767,7 +767,7 @@
                 {
                     "name": "",
                     "id": "e864b4bd-d3a9-4f2d-b45a-6754870270e8",
-                    "path": "<GameController>/RightStick",
+                    "path": "<ModernController>/RightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -811,7 +811,7 @@
                 {
                     "name": "",
                     "id": "aa05618e-6bf4-45af-815c-ce85e3c69570",
-                    "path": "<XControllerBluetooth>/leftStickPress",
+                    "path": "<XBoxControllerBluetooth>/leftStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -822,7 +822,7 @@
                 {
                     "name": "",
                     "id": "496fad7f-10af-47dd-a29c-429ed7c9c9a3",
-                    "path": "<GameController>/LeftStick",
+                    "path": "<ModernController>/LeftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -921,7 +921,7 @@
                 {
                     "name": "",
                     "id": "8a73d9f7-33ba-4a5a-af2f-74bc51a7bd4e",
-                    "path": "<GameController>/Joystick",
+                    "path": "<ModernController>/Joystick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -932,7 +932,7 @@
                 {
                     "name": "",
                     "id": "5b087b92-4bdb-41a5-b84f-4168b72d34e8",
-                    "path": "<GameController>/RightJoystick",
+                    "path": "<ModernController>/RightJoystick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -943,7 +943,7 @@
                 {
                     "name": "",
                     "id": "d14511ff-98fb-452b-95f5-249f484c1563",
-                    "path": "<GameController>/A_HAT",
+                    "path": "<ModernController>/A_HAT",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

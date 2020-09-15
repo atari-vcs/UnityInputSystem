@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.Utilities;
 
 namespace Atari.VCS.Dashboard
 {
-    public class XControllerBluetoothLayout : IInputStateTypeInfo
+    public class XBoxControllerBluetoothLayout : IInputStateTypeInfo
     {
         public FourCC format => new FourCC ('G', 'P', 'A', 'D');
         [InputControl (name = "atari", bit = (uint) 8, offset = 0, displayName = "Atari", layout = "Button")]
