@@ -1,12 +1,11 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Atari.VCS.Dashboard
+namespace Atari.VCS.UnityInputSystem
 {
     public struct ClassicJoystickLayout : IInputStateTypeInfo
     {

@@ -205,17 +205,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c7faf0e7-5bc9-4e5b-972a-f9b4895f61dd",
-                    "path": "<GameControllerBluetooth>/SelectButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "A",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c4da1035-4994-49f4-a655-3af40eda8077",
                     "path": "<Keyboard>/numpadEnter",
                     "interactions": "",
@@ -282,17 +271,6 @@
                 },
                 {
                     "name": "",
-                    "id": "e0c1bce9-29fe-4900-b0ed-cf572b092704",
-                    "path": "<GameControllerBluetooth>/B",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "B",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "cb97ec15-0e1c-44a3-ade7-ce2e64fdacf9",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -328,17 +306,6 @@
                     "name": "",
                     "id": "a2b85dac-d6f0-4171-8c7e-072f8983c32f",
                     "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "83e959b8-5a87-484a-853a-cf81edfecf9f",
-                    "path": "<GameControllerBluetooth>/Back",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -392,17 +359,6 @@
                 },
                 {
                     "name": "",
-                    "id": "34f9ce48-7823-441b-b57d-9b07cbcb0120",
-                    "path": "<GameControllerBluetooth>/Menu",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "eb2b6199-0a3f-4f12-a056-4b48118d908e",
                     "path": "<Keyboard>/contextMenu",
                     "interactions": "",
@@ -415,7 +371,7 @@
                 {
                     "name": "",
                     "id": "4cd90a32-50ad-43ca-a1be-c8ed408d9d3c",
-                    "path": "<XBoxControllerBluetooth>/atari",
+                    "path": "<XBoxControllerBluetooth>/Atari",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -448,18 +404,7 @@
                 {
                     "name": "",
                     "id": "bc8de43b-9875-4034-80cd-516e7aacd622",
-                    "path": "<XboxController>/atari",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Atari",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7dc56038-19c9-44f8-9994-7f0e5c6dc501",
-                    "path": "<GameControllerBluetooth>/Atari",
+                    "path": "<XboxController>/Atari",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -513,17 +458,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d72cd2cd-ecfe-4fbc-99e0-ee1ce28de954",
-                    "path": "<GameControllerBluetooth>/YButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Y",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "79b99c14-069e-4158-b339-5fc7adb6b032",
                     "path": "<Keyboard>/rightAlt",
                     "interactions": "",
@@ -568,17 +502,6 @@
                 },
                 {
                     "name": "",
-                    "id": "8338e11f-9f72-4ab8-8a2e-85fdc155dfd9",
-                    "path": "<GameControllerBluetooth>/XButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "X",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f25d0eb7-c88e-4098-a906-d0cdb7bd0000",
                     "path": "<Keyboard>/leftAlt",
                     "interactions": "",
@@ -591,7 +514,7 @@
                 {
                     "name": "",
                     "id": "23237714-cdad-4902-8289-419a862402fe",
-                    "path": "<ModernController>/LeftBumper",
+                    "path": "<ModernController>/Left Bumper",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -623,19 +546,8 @@
                 },
                 {
                     "name": "",
-                    "id": "dd0da618-9058-486b-9b1f-08d965f9b1ee",
-                    "path": "<GameControllerBluetooth>/LeftBumper",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftBumper",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "eca3f149-d1e7-4b91-bb1d-990c5a521e75",
-                    "path": "<ModernController>/RightBumper",
+                    "path": "<ModernController>/Right Bumper",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -667,17 +579,6 @@
                 },
                 {
                     "name": "",
-                    "id": "61a9dd61-6515-4611-8e10-a0598ceec8c0",
-                    "path": "<GameControllerBluetooth>/RightBumper",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightBumper",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "508208f5-e4d5-4cfe-a6be-c4d6bdc7f23b",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
@@ -700,19 +601,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f30bf0ba-505b-41c2-8522-734a1b0a7be2",
-                    "path": "<GameControllerBluetooth>/LeftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftTrigger",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b5a7a91f-f8d8-4059-a6ab-d3a5e8863019",
-                    "path": "<ModernController>/LeftTrigger",
+                    "path": "<ModernController>/Left Trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -723,7 +613,7 @@
                 {
                     "name": "",
                     "id": "2b231b53-5a2f-4bd6-a6bf-11da3c02ea79",
-                    "path": "<ModernController>/RightTrigger",
+                    "path": "<ModernController>/Right Trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -767,7 +657,7 @@
                 {
                     "name": "",
                     "id": "e864b4bd-d3a9-4f2d-b45a-6754870270e8",
-                    "path": "<ModernController>/RightStick",
+                    "path": "<ModernController>/Right Stick Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -779,17 +669,6 @@
                     "name": "",
                     "id": "d3529e1c-b200-47e3-8756-516d6a1c4a25",
                     "path": "<Gamepad>/rightStickPress",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "74d1a01d-e90b-4bf4-a259-d4f1537d828a",
-                    "path": "<GameControllerBluetooth>/RightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -811,7 +690,7 @@
                 {
                     "name": "",
                     "id": "aa05618e-6bf4-45af-815c-ce85e3c69570",
-                    "path": "<XBoxControllerBluetooth>/leftStickPress",
+                    "path": "<XBoxControllerBluetooth>/Left Stick Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -822,7 +701,7 @@
                 {
                     "name": "",
                     "id": "496fad7f-10af-47dd-a29c-429ed7c9c9a3",
-                    "path": "<ModernController>/LeftStick",
+                    "path": "<ModernController>/Left Stick Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -837,17 +716,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "LeftStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c7544f14-49fb-420d-a68d-c65ac864828a",
-                    "path": "<GameControllerBluetooth>/LeftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Game Controller Bluetooth",
                     "action": "LeftStick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -921,7 +789,7 @@
                 {
                     "name": "",
                     "id": "8a73d9f7-33ba-4a5a-af2f-74bc51a7bd4e",
-                    "path": "<ModernController>/Joystick",
+                    "path": "<ModernController>/Left Joystick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -932,7 +800,7 @@
                 {
                     "name": "",
                     "id": "5b087b92-4bdb-41a5-b84f-4168b72d34e8",
-                    "path": "<ModernController>/RightJoystick",
+                    "path": "<ModernController>/Right Joystick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -943,7 +811,7 @@
                 {
                     "name": "",
                     "id": "d14511ff-98fb-452b-95f5-249f484c1563",
-                    "path": "<ModernController>/A_HAT",
+                    "path": "<ModernController>/D-Pad",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -992,50 +860,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "979ff29d-7908-4c68-8e95-63c72ae381a2",
-                    "path": "<GameControllerBluetooth>/A_HAT",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7e5a9de9-f6fd-4c39-bd82-5cd68f3157a2",
-                    "path": "<GameControllerBluetooth>/Joystick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "11484894-206a-4df3-b82b-4973a55c137e",
-                    "path": "<GameControllerBluetooth>/RightJoystick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac5a2f20-abc3-4061-bbea-531f51074528",
-                    "path": "<GameControllerBluetooth>/RightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

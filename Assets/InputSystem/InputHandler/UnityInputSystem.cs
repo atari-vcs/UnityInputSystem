@@ -6,26 +6,26 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 
-namespace Atari.VCS.Dashboard
+namespace Atari.VCS.UnityInputSystem
 {
-    public class InputManager : MonoBehaviour
+    public class UnityInputSystem : MonoBehaviour
     {
         #region Singleton
 
-        private static InputManager instance = null;
+        private static UnityInputSystem instance = null;
 
-        private InputManager ()
+        private UnityInputSystem ()
         {
 
         }
 
-        public static InputManager Instance
+        public static UnityInputSystem Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<InputManager> ();
+                    instance = FindObjectOfType<UnityInputSystem> ();
                 }
 
                 return instance;
@@ -62,13 +62,13 @@ namespace Atari.VCS.Dashboard
             "Cetus CDC Device"
         };
 
-        public static readonly List<string> XInputController = new List<string>
+        public static readonly List<string> XboxController = new List<string>
         {
             "PlayStation 3 Memory Card Adaptor",
             "Xbox360 Controller"
         };
 
-        public static readonly List<string> XInputBluetoothController = new List<string>
+        public static readonly List<string> XboxControllerBluetooth = new List<string>
         {
             "DCP-J152N"
         };
@@ -96,9 +96,8 @@ namespace Atari.VCS.Dashboard
 
         private Vector2 myMovement = Vector2.zero;
 
-        //private HashSet<IInputListener> listeners = new HashSet<IInputListener> ();
-
         #endregion
+
         #region ControllerMappedLayout
 
         public void A (InputAction.CallbackContext context)
@@ -288,13 +287,13 @@ namespace Atari.VCS.Dashboard
         {
             if (context.control == null)
             {
-                Debug.LogErrorFormat ("<InputManager/GetInputSource> Context.Control ({0})", "Null");
+                Debug.LogErrorFormat ("<UnityInputSystem/GetInputSource> Context.Control ({0})", "Null");
 
                 return InputSource.NONE;
             }
             else if (context.control.device == null)
             {
-                Debug.LogErrorFormat ("<InputManager/GetInputSource> Context.Control.Device ({0})", "Null");
+                Debug.LogErrorFormat ("<UnityInputSystem/GetInputSource> Context.Control.Device ({0})", "Null");
 
                 return InputSource.NONE;
             }
@@ -305,7 +304,7 @@ namespace Atari.VCS.Dashboard
             {
                 if (string.IsNullOrEmpty (current))
                 {
-                    Debug.LogErrorFormat ("<InputManager/GetInputSource> Context.Control.Device.Description.Product ({0})", "Null");
+                    Debug.LogErrorFormat ("<UnityInputSystem/GetInputSource> Context.Control.Device.Description.Product ({0})", "Null");
 
                     return InputSource.NONE;
                 }
@@ -326,17 +325,17 @@ namespace Atari.VCS.Dashboard
                     }
                 }
 
-                for (int i = 0; i < XInputController.Count; i++)
+                for (int i = 0; i < XboxController.Count; i++)
                 {
-                    if (current.Equals (XInputController [i]))
+                    if (current.Equals (XboxController [i]))
                     {
                         return InputSource.XBOX_CONTROLLER;
                     }
                 }
 
-                for (int i = 0; i < XInputBluetoothController.Count; i++)
+                for (int i = 0; i < XboxControllerBluetooth.Count; i++)
                 {
-                    if (current.Equals (XInputBluetoothController [i]))
+                    if (current.Equals (XboxControllerBluetooth [i]))
                     {
                         return InputSource.XBOX_CONTROLLER;
                     }

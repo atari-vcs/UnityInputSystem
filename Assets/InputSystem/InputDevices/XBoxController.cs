@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Atari.VCS.Dashboard
+namespace Atari.VCS.UnityInputSystem
 {
     // The device must be directed to the state struct we have created.
     [InputControlLayout (stateType = typeof (XBoxControllerLayout))]
@@ -17,7 +17,7 @@ namespace Atari.VCS.Dashboard
 
         static XboxController ()
         {
-            List<string> namesToRegister = InputManager.XInputController;
+            List<string> namesToRegister = UnityInputSystem.XboxController;
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {

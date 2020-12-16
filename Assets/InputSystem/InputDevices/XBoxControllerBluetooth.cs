@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Atari.VCS.Dashboard
+namespace Atari.VCS.UnityInputSystem
 {
     // The device must be directed to the state struct we have created.
     [InputControlLayout (stateType = typeof (XBoxControllerBluetoothLayout))]
@@ -17,13 +17,13 @@ namespace Atari.VCS.Dashboard
 
         static XBoxControllerBluetooth ()
         {
-            List<string> namesToRegister = InputManager.XInputBluetoothController;
+            List<string> namesToRegister = UnityInputSystem.XboxControllerBluetooth;
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {
                 InputSystem.RegisterLayout<XBoxControllerBluetooth> (
-                matches: new InputDeviceMatcher ()
-                    .WithProduct (namesToRegister [i]));
+                     matches: new InputDeviceMatcher ()
+                         .WithProduct (namesToRegister [i]));
             }
         }
 

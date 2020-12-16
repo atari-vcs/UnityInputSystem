@@ -156,7 +156,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.25370684, g: 0.2306871, b: 0.6037736, a: 0}
+  m_BackGroundColor: {r: 0.0202109, g: 0.013305449, b: 0.122641504, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 692946647}
   - component: {fileID: 692946646}
   m_Layer: 5
-  m_Name: Button-Pressed-Text (TMP)
+  m_Name: Key-Pressed-Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bdb29bcdd604bccad2c1c56fee896b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ButtonText: {fileID: 692946646}
+  keyPressedText: {fileID: 692946646}
 --- !u!4 &811275629
 Transform:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 8107556799865109500, guid: 04720f348f7d84fd39b1f97863c94a86,
         type: 3}
       propertyPath: m_Name
-      value: InputManager
+      value: InputSystem
       objectReference: {fileID: 0}
     - target: {fileID: 8107556799865109489, guid: 04720f348f7d84fd39b1f97863c94a86,
         type: 3}

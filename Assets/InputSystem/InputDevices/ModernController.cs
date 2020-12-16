@@ -6,10 +6,10 @@ using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 using System.Collections.Generic;
 
-namespace Atari.VCS.Dashboard
+namespace Atari.VCS.UnityInputSystem
 {
     // The device must be directed to the state struct we have created.
-    [InputControlLayout (stateType = typeof (GameControllerLayout))]
+    [InputControlLayout (stateType = typeof (ModernControllerLayout))]
     public class ModernController : Joystick
     {
         public StickControl LeftAxis { get; private set; }
@@ -19,18 +19,18 @@ namespace Atari.VCS.Dashboard
 
         protected override void FinishSetup ()
         {
-            LeftAxis = GetChildControl<StickControl> ("Joystick");
-            RightAxis = GetChildControl<StickControl> ("RightJoystick");
-            Dpad = GetChildControl<DpadControl> ("A_HAT");
+            LeftAxis = GetChildControl<StickControl> ("Left Joystick");
+            RightAxis = GetChildControl<StickControl> ("Right Joystick");
+            Dpad = GetChildControl<DpadControl> ("D-Pad");
             base.FinishSetup ();
 
         }
 
         static ModernController ()
         {
-            List<string> namesToRegister = InputManager.modernControllerNames;
+            List<string> namesToRegister = UnityInputSystem.modernControllerNames;
 
-            for(int i =0;i<namesToRegister.Count;i++)
+            for (int i = 0; i < namesToRegister.Count; i++)
             {
                 InputSystem.RegisterLayout<ModernController> (
                 matches: new InputDeviceMatcher ()

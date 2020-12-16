@@ -1,0 +1,9 @@
+﻿public enum InputSource
+{
+    NONE,
+    CLASSIC_JOYSTICK,
+    MODERN_CONTROLLER,
+    XBOX_CONTROLLER,
+    GENERIC,
+    KEYBOARD_AND_MOUSE
+}
