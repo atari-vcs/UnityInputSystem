@@ -156,6 +156,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dial",
+                    "type": "Value",
+                    "id": "81b01b32-d93b-4917-b668-2d7f9c6fa7fa",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -187,7 +195,7 @@
                     "path": "<ClassicJoystick>/SelectButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Classic Joystick",
                     "action": "A",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -253,7 +261,7 @@
                     "path": "<ClassicJoystick>/B",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Classic Joystick",
                     "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -297,7 +305,7 @@
                     "path": "<ClassicJoystick>/Back",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Classic Joystick",
                     "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -341,7 +349,7 @@
                     "path": "<ClassicJoystick>/Menu",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Classic Joystick",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -396,7 +404,7 @@
                     "path": "<ClassicJoystick>/Atari",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Classic Joystick",
                     "action": "Atari",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -825,7 +833,7 @@
                     "path": "<ClassicJoystick>/A_HAT",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Classic Joystick",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -917,6 +925,17 @@
                     "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8394dd8f-a03d-4643-b127-68ada2b09576",
+                    "path": "<ClassicJoystick>/Dial",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -950,95 +969,11 @@
             ]
         },
         {
-            "name": "Touch",
-            "bindingGroup": "Touch",
-            "devices": [
-                {
-                    "devicePath": "<Touchscreen>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
             "name": "Joystick",
             "bindingGroup": "Joystick",
             "devices": [
                 {
                     "devicePath": "<Joystick>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "XR",
-            "bindingGroup": "XR",
-            "devices": [
-                {
-                    "devicePath": "<XRController>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "All Controllers",
-            "bindingGroup": "All Controllers",
-            "devices": [
-                {
-                    "devicePath": "<XInputController>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<GameController>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<ClassicJoystick>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<GameControllerBluetooth>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "DisabledControlScheme",
-            "bindingGroup": "DisabledControlScheme",
-            "devices": [
-                {
-                    "devicePath": "<ClassicJoystick>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<GameController>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<GameControllerBluetooth>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Joystick>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }
@@ -1061,17 +996,6 @@
             "devices": [
                 {
                     "devicePath": "<ClassicJoystick>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Game Controller Bluetooth",
-            "bindingGroup": "Game Controller Bluetooth",
-            "devices": [
-                {
-                    "devicePath": "<GameControllerBluetooth>",
                     "isOptional": false,
                     "isOR": false
                 }

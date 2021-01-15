@@ -17,7 +17,7 @@ namespace Atari.VCS.UnityInputSystem
 
         static XBoxControllerBluetooth ()
         {
-            List<string> namesToRegister = UnityInputSystem.XboxControllerBluetooth;
+            List<string> namesToRegister = ControllerNames.ControllerName("XboxBluetooth");
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {

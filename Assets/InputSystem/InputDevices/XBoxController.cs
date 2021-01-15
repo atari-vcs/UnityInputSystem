@@ -17,7 +17,7 @@ namespace Atari.VCS.UnityInputSystem
 
         static XboxController ()
         {
-            List<string> namesToRegister = UnityInputSystem.XboxController;
+            List<string> namesToRegister = ControllerNames.ControllerName("Xbox");
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {

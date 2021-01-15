@@ -28,7 +28,7 @@ namespace Atari.VCS.UnityInputSystem
 
         static ModernController ()
         {
-            List<string> namesToRegister = UnityInputSystem.modernControllerNames;
+            List<string> namesToRegister = ControllerNames.ControllerName("Modern");
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {

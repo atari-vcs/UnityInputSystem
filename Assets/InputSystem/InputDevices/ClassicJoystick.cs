@@ -17,7 +17,7 @@ namespace Atari.VCS.UnityInputSystem
 
         static ClassicJoystick ()
         {
-            List<string> namesToRegister = UnityInputSystem.classicJoystickNames;
+            List<string> namesToRegister = ControllerNames.ControllerName("Classic");
 
             for (int i = 0; i < namesToRegister.Count; i++)
             {

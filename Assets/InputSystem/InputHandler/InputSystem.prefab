@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8107556799865109491}
   - component: {fileID: 786893654605504927}
   m_Layer: 0
-  m_Name: InputManager
+  m_Name: InputSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,6 +289,21 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b08320f5-41bc-4ac5-aa3e-4eaaad9b13e9
     m_ActionName: Dashboard/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 786893654605504927}
+        m_MethodName: Dial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 81b01b32-d93b-4917-b668-2d7f9c6fa7fa
+    m_ActionName: Dashboard/Dial
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Dashboard
