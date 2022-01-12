@@ -17,5 +17,7 @@
     Left,
     Right,
     Up,
-    Down
+    Down,
+    DialClockWise,
+    DialAntiClockWise
 }

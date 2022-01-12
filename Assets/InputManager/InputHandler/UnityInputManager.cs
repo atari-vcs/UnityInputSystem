@@ -15,7 +15,7 @@ namespace Atari.VCS.UnityInputManager
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<UnityInputManager> ();
+                    instance = FindObjectOfType<UnityInputManager>();
                 }
 
                 return instance;
@@ -26,7 +26,7 @@ namespace Atari.VCS.UnityInputManager
 
         #region Actions
 
-        public static Action<ButtonType> OnButtonPressed;
+        public static Action<ButtonType, float> OnButtonPressed;
 
         #endregion
 
@@ -38,47 +38,47 @@ namespace Atari.VCS.UnityInputManager
 
         #endregion
 
-        private void Update ()
+        private void Update()
         {
-            string [] connectedJoysticks = Input.GetJoystickNames ();
+            string[] connectedJoysticks = Input.GetJoystickNames();
 
             ButtonType button = ButtonType.None;
 
-            for (int a = 1; a < 9; a++)
+            for (int a = 0; a < 9; a++)
             {
-                float movement = Input.GetAxis (string.Format ("Axis {0}", a));
+                float movement = Input.GetAxis(string.Format("Axis {0}", a));
 
                 if (movement != 0)
                 {
-                    button = controllerInterface.ButtonPressed (string.Format ("Axis {0}", a), movement);
+                    button = controllerInterface.ButtonPressed(string.Format("Axis {0}", a), movement);
 
                     if (button != ButtonType.None)
                     {
-                        OnButtonPressed?.Invoke (button);
+                        OnButtonPressed?.Invoke(button, movement);
                     }
                 }
             }
 
             for (int b = 0; b < 11; b++)
             {
-                if (Input.GetButtonUp (string.Format ("Button {0}", b)))
+                if (Input.GetButtonUp(string.Format("Button {0}", b)))
                 {
-                    OnButtonPressed?.Invoke (controllerInterface.ButtonPressed (string.Format ("Button {0}", b), -1));
+                    OnButtonPressed?.Invoke(controllerInterface.ButtonPressed(string.Format("Button {0}", b), -1), 1);
                 }
             }
         }
 
-        public bool ToggleControllerInterface ()
+        public bool ToggleControllerInterface()
         {
             enabledClassicJoystick = !enabledClassicJoystick;
 
             if (enabledClassicJoystick)
             {
-                controllerInterface = new ClassicJoystick ();
+                controllerInterface = new ClassicJoystick();
             }
             else
             {
-                controllerInterface = new ModernController ();
+                controllerInterface = new ModernController();
             }
 
             return enabledClassicJoystick;

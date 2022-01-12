@@ -24,7 +24,7 @@ namespace Atari.VCS.UnityInputManager
             UnityInputManager.OnButtonPressed -= ButtonPressed;
         }
 
-        private void ButtonPressed (ButtonType button)
+        private void ButtonPressed (ButtonType button, float value)
         {
             keyPressedText.text = string.Format ("{0} was pressed", button.ToString ());
         }

@@ -96,9 +96,22 @@ namespace Atari.VCS.UnityInputSystem
 
         private Vector2 myMovement = Vector2.zero;
 
+        private float lastDial = 0;
+
         #endregion
 
         #region ControllerMappedLayout
+
+        private void OnEnable()
+        {
+            //Get the whole Action Map for Classic Joystick
+            InputAction myButtonAction = new InputAction(binding: "<ClassicJoystick>/*");
+            // Assign any input "performed" callback to process
+            myButtonAction.started += ClassicDial;
+            myButtonAction.performed += ClassicDial;
+
+            myButtonAction.Enable();
+        }
 
         public void A (InputAction.CallbackContext context)
         {
@@ -240,6 +253,34 @@ namespace Atari.VCS.UnityInputSystem
                 shouldMoveAxis = false;
 
                 myMovement = Vector2.zero;
+            }
+        }
+
+        public void ClassicDial(InputAction.CallbackContext context)
+        {
+            if (context.control.name.Equals("Rudder")) //  Check the input against btn name from SDL
+            {
+                float currentValue = context.ReadValue<float>(); // Use the float value to calculate 
+
+                ButtonType direction = ButtonType.None;
+
+                if (Mathf.Abs(lastDial - currentValue) > 0.025f)
+                {
+                    if (lastDial - context.ReadValue<float>() > 0)
+                    {
+                        direction = ButtonType.DialAntiClockWise;
+                    }
+                    else
+                    {
+                        direction = ButtonType.DialClockWise;
+                    }
+
+                    lastDial = context.ReadValue<float>();
+
+                    Debug.LogError("Twisting." + direction);
+
+                    ButtonPressed(direction, context);
+                }
             }
         }
 

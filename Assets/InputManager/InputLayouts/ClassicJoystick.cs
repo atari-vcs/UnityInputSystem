@@ -49,6 +49,10 @@
                 buttonType = value > 0 ? ButtonType.Down : ButtonType.Up;
 
                 break;
+
+                case "Axis 0":
+                    buttonType = value > 0 ? ButtonType.DialClockWise : ButtonType.DialAntiClockWise;
+                    break;
             }
 
             return buttonType;

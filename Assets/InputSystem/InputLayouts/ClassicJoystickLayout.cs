@@ -30,8 +30,6 @@ namespace Atari.VCS.UnityInputSystem
             parameters = "clamp=1,clampMin=-1,clampMax=0,scale,scaleFactor=2147483647,invert")]
         [InputControl(name = "A_HAT/right", offset = 0, bit = 0, format = "INT", sizeInBits = 32,
             parameters = "clamp=1,clampMin=0,clampMax=1,scale,scaleFactor=2147483647")]
-        [InputControl(name = "Dial",layout ="Analog", offset = 4, bit = 0, format = "INT", sizeInBits = 32,noisy =true,
-        parameters = "clamp=1,clampMin=0,clampMax=1,scale,scaleFactor=65538")]
         public int buttons;
     }
 }

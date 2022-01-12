@@ -156,14 +156,6 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Dial",
-                    "type": "Value",
-                    "id": "81b01b32-d93b-4917-b668-2d7f9c6fa7fa",
-                    "expectedControlType": "Analog",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -923,17 +915,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8394dd8f-a03d-4643-b127-68ada2b09576",
-                    "path": "<ClassicJoystick>/Dial",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dial",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
