@@ -1,0 +1,48 @@
+# CODEOWNERS file for atari-vcs
+# This file defines who owns and reviews code in this repository
+# Each line is a file pattern followed by one or more owners
+
+# Default owners for everything in the repo
+* @atari-vcs/admins
+
+# Frontend code
+/frontend/ @atari-vcs/developers
+/client/ @atari-vcs/developers  
+*.js @atari-vcs/developers
+*.jsx @atari-vcs/developers
+*.ts @atari-vcs/developers
+*.tsx @atari-vcs/developers
+*.css @atari-vcs/developers
+*.scss @atari-vcs/developers
+
+# Backend code
+/backend/ @atari-vcs/developers
+/server/ @atari-vcs/developers
+/api/ @atari-vcs/developers
+*.py @atari-vcs/developers
+*.go @atari-vcs/developers
+*.java @atari-vcs/developers
+*.cs @atari-vcs/developers
+
+# Infrastructure and DevOps
+/terraform/ @atari-vcs/admins
+/kubernetes/ @atari-vcs/admins
+/.github/ @atari-vcs/admins
+Dockerfile @atari-vcs/admins
+docker-compose.yml @atari-vcs/admins
+*.tf @atari-vcs/admins
+*.yaml @atari-vcs/admins
+*.yml @atari-vcs/admins
+
+# Documentation
+/docs/ @atari-vcs/developers
+*.md @atari-vcs/developers
+README.md @atari-vcs/admins
+SECURITY.md @atari-vcs/security
+
+# Security-sensitive files
+.env* @atari-vcs/security
+*secret* @atari-vcs/security
+*credential* @atari-vcs/security
+*key* @atari-vcs/security
+*token* @atari-vcs/security
